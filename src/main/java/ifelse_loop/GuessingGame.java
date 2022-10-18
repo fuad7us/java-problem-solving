@@ -35,11 +35,11 @@ public class GuessingGame {
                 Scanner input = new Scanner(System.in);
                 int uservalue = input.nextInt();
                 if (uservalue > randomValue){
-                    System.out.println("Your input is higher than the generated number");
+                    System.out.println("Your input " + uservalue + " is higher than the generated number");
                 } else if(uservalue < randomValue){
-                    System.out.println("Your input is lower than the generated number");
+                    System.out.println("Your input " + + uservalue + " is lower than the generated number");
                 } else {
-                    System.out.println("Great! You have guessed the correct number");
+                    System.out.println("Great! " + uservalue + " is the correct number that match with generated number. ");
                     break;
                 }
             }

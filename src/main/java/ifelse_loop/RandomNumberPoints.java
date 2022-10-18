@@ -16,13 +16,15 @@ public class RandomNumberPoints {
             Scanner scan = new Scanner(System.in);
 
             for (int i = 0; i < 10; i++) {
-                System.out.println("See you can guess the number, please enter one: ");
+                System.out.println("See you can guess the number between 0 to 20: ");
                 int userInput = scan.nextInt();
                 if (userInput == rand1 || userInput == rand2) {
                     point += 1;
                     System.out.println("You get 1 point");
-                }else {
-                    System.out.println("You do not guess any point");
+                } else if (userInput > 20) {
+                    System.out.println("Please guess between 0 to 20");
+                } else {
+                    System.out.println("You do not get any point");
                 }
             }
             System.out.println("Your total point is : " + point);
