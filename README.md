@@ -1,4 +1,4 @@
-# java-problem-solving
+# Java Problem Solving
 
 ## Technology and tool used
 - Java
