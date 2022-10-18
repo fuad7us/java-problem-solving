@@ -9,6 +9,7 @@
  - Condition loop problem
  - Array & function problem
 
+# Condition loop problem
 #### 01. Write a program to check if inputted letter is small or capital.
 ```
 Scanner scan = new Scanner(System.in);
