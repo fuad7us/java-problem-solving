@@ -208,3 +208,24 @@ while (!choice.equals("q")){
 System.out.println("The largest number is: " + max);
 System.out.println("The smallest number is: " + min);
 ```
+
+# Array & function problem
+
+#### 1. Take input from a user and check if the number exists in the array.
+```
+try {
+    int arr[] = {1,3,5,7,2,4,6,8};
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Please enter a number: ");
+    int userInput = scan.nextInt();
+
+    for (int i = 0; i < arr.length; i++) {
+        if (userInput == arr[i]) {
+            System.out.println("Your number is at index " + i);
+        }
+    }
+
+}catch (Exception e){
+    System.out.println(e);
+}
+```
