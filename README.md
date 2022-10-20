@@ -421,19 +421,120 @@ try {
 }
 ```
 # String Manipulation
-#### 1. Extract the transaction ID from the following HTML body
-#### Input:
-#### <html>
-#### <title>Test</title>
-#### <body>
-#### Your trnx is successful. Trnx Id is: TXN123456
-#### </body>
-#### </html>
-
+#### 1. Extract the transaction ID TXN123456 from the HTML body
 ```
 String htmlBody = "<html> + ' ' + <title> + ' ' + Test + ' ' + </title> + ' ' + <body> + ' ' + " +
                     "Your trnx is successful. + ' ' + Trnx Id is: TXN123456 + ' ' + </body> + ' ' + </html>";
 int findIndex = htmlBody.indexOf("TXN");
 System.out.println(htmlBody.substring(findIndex, 130));
 
+```
+#### 2. Price of a formal shirt is 1200 tk and Sharee is 3500 tk. If you buy 2 shirt and 1 sharee, then 400 tk will be discounted. After your purchase what will be your total cost?
+```
+String str = "Price of a formal shirt is 1200 tk and Sharee is 3500 tk. If you buy 2 shirt and 1 sharee," +
+                    "   then 400 tk will be discounted. After your purchase what will be your total cost?";
+
+str = str.replaceAll("[^\\d]", " ");
+str = str.trim();
+str = str.replaceAll(" + ", " ");
+String[] arr = str.split(" ");
+
+int shirtPrice = Integer.parseInt(arr[0]);
+int shareePrice = Integer.parseInt(arr[1]);
+int shirtQuantity = Integer.parseInt(arr[2]);
+int shareeQuantity = Integer.parseInt(arr[3]);
+int discount = Integer.parseInt(arr[4]);
+int totalPrice = 0;
+
+if (shirtQuantity == 2 && shareeQuantity == 1){
+    totalPrice += (shirtPrice * shirtQuantity) + (shareePrice * shareeQuantity);
+    totalPrice = totalPrice - discount;
+}
+
+System.out.println("Total price after 400tk discount is " + totalPrice);
+```
+#### 3. Core i 7 HP laptop price is 76000 tk and cash payment discount 10%. What will be the purchase price?
+```
+String str = "Core i 7 HP laptop price is 76000 tk and cash payment discount 10%. " +
+                    "What will be the purchase price?";
+str = str.replaceAll("[^\\d]"," ");
+str = str.trim();
+str = str.replaceAll(" + "," ");
+
+String[] arr = str.split(" ");
+
+int laptopPrice = Integer.parseInt(arr[1]);
+int discount = Integer.parseInt(arr[2]);
+discount = (laptopPrice * discount) / 100;
+int purchaseprice = laptopPrice - discount;
+
+System.out.println("After 10% discount, purchase price will be " + purchaseprice);
+```
+#### 4. Write a program that will give following output:
+#### Input: Chattogram
+#### Output: C8M
+```
+String str = "Chattogram";
+String firstLetter = String.valueOf(str.charAt(0)).toUpperCase();
+String lsstLetter = String.valueOf(str.charAt(str.length() - 1)).toUpperCase();
+int count = str.length() - 2;
+System.out.println(firstLetter + Integer.toString(count) + lsstLetter);
+```
+#### 5. Write a program that will count how many vowels in the given string
+```
+String str = "roadtosdet";
+char[] ch = {'a', 'e', 'i', 'o', 'u'};
+int count = 0;
+for (int i = 0; i < str.length(); i++) {
+    for (int j = 0; j < ch.length; j++) {
+        if(ch[j] == str.charAt(i)){
+            count++;
+        }
+    }
+}
+System.out.println("There are " + count + " vowels in the string");
+```
+#### 6. Replace "R" from Rahim with "F" from the given String:
+#### Input: Ratul and Rahim live in Rangpur
+#### Output: Ratul and Fahim lives in Rangpur
+```
+String str = "Ratul and Rahim live in Rangpur";
+String[] words = str.split(" ");
+for (int i = 0; i < words.length; i++) {
+    if(words[i].equals("Rahim")){
+        String rWord = words[i].substring(0,1).replace("R", "F") + words[i].substring(1);
+        words[i] = rWord;
+    }
+}
+StringBuilder sb = new StringBuilder();
+for(String st : words){
+    sb.append(" " + st);
+}
+
+str = sb.toString();
+System.out.println(str);
+```
+#### 7. Find out how many images are in the given array
+```
+String[] images = {"photo1.jpg", "doc1.pdf", "doc2.docx", "photo2.png", "doc3.pdf",
+                    "msoffice.exe", "photo3.jpg"};
+int count = 0;
+
+for (String str:images) {
+    if (str.contains(".jpg") || str.contains(".png")){
+        count++;
+    }
+}
+
+System.out.println("There are total " + count + " images");
+```
+#### 8. Write a program to convert each 1st char to uppercase from a string
+```
+String line = "dark side of the moon";
+String[] words = line.split(" ");
+String cap ="";
+for (int i = 0; i < words.length; i++) {
+    cap += words[i].substring(0,1).toUpperCase() + words[i].substring(1) + " ";
+}
+System.out.println(cap);
 ```
