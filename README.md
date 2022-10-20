@@ -31,12 +31,13 @@ for (int i =0; i <= 5; i++){
     Scanner input = new Scanner(System.in);
     int uservalue = input.nextInt();
     if (uservalue > randomValue){
-        System.out.println("Your input is higher than the generated number");
+        System.out.println("Your input " + uservalue + " is higher than the generated number");
     } else if(uservalue < randomValue){
-        System.out.println("Your input is lower than the generated number");
+        System.out.println("Your input " + + uservalue + " is lower than the generated number");
     } else {
-        System.out.println("Great! You have guessed the correct number");
+        System.out.println("Great! " + uservalue + " is the correct number that match with generated number. ");
         break;
+    }
 }
 ```
 #### 03. Input 2 decimal numbers. Check if they are both same or different up to two decimal places. 
@@ -59,46 +60,52 @@ else
 #### 04. Write a program to check your balance, deposit balance and withdraw balance from ATM booth.
 ```
 int balance = 100000; // Initial balance
-int withdraw;
-int deposit;
+    int withdraw;
+    int deposit;
 
-Scanner scan = new Scanner(System.in);
+    Scanner scan = new Scanner(System.in);
 
-System.out.println("***** ATM Booth *****");
-System.out.println("1. Choose 1 for withdraw");
-System.out.println("2. Choose 2 for deposit");
-System.out.println("3. Choose 3 for check balance");
+    while(true){
+        System.out.println("***** ATM Booth *****");
+        System.out.println("1. Choose 1 for withdraw");
+        System.out.println("2. Choose 2 for deposit");
+        System.out.println("3. Choose 3 for check balance");
+        System.out.println("4. Choose 4 to exit");
 
-int choice = scan.nextInt();
-switch (choice){
-    case 1:
-        System.out.println("Please enter money to be withdrawn: ");
-        withdraw = scan.nextInt();
-        if (balance >= withdraw) {
-            balance = balance - withdraw;
-            System.out.println("You withdraw " + withdraw);
-        } else {
-            System.out.println("Insufficient balance");
-        }
-        System.out.println("Now your balance is " + balance);
-        break;
+    int choice = scan.nextInt();
+    switch (choice){
+        case 1:
+            System.out.println("Please enter money to be withdrawn: ");
+            withdraw = scan.nextInt();
+            if (balance >= withdraw) {
+                balance = balance - withdraw;
+                System.out.println("You withdraw " + withdraw);
+            } else {
+                System.out.println("Insufficient balance");
+            }
+            System.out.println("Now your balance is " + balance);
+            break;
 
-    case 2:
-        System.out.println("Please enter money to be deposit: ");
-        deposit = scan.nextInt();
-        balance = balance + deposit;
-        System.out.println("Your money has been successfully deposited");
-        System.out.println("Now your balance is " + balance);
-        break;
+        case 2:
+            System.out.println("Please enter money to be deposit: ");
+            deposit = scan.nextInt();
+            balance = balance + deposit;
+            System.out.println("Your money has been successfully deposited");
+            System.out.println("Now your balance is " + balance);
+            break;
 
-    case 3:
-         System.out.println("Your current balance is: " + balance);
-        break;
+        case 3:
+            System.out.println("Your current balance is: " + balance);
+            break;
 
-    default:
-        System.out.println("Please choose between 1 to 3");
-        break;
-}
+        case 4:
+            System.exit(0);
+
+        default:
+            System.out.println("Please choose between 1 to 4");
+            break;
+    }
+  }
 ```
 #### 05. Write a program to sum of numbers which only divisible by 5 from 1 to 100.
 ```
@@ -156,13 +163,15 @@ int point = 0;
 Scanner scan = new Scanner(System.in);
 
 for (int i = 0; i < 10; i++) {
-    System.out.println("See you can guess the number, please enter one: ");
+    System.out.println("See you can guess the number between 0 to 20: ");
     int userInput = scan.nextInt();
     if (userInput == rand1 || userInput == rand2) {
         point += 1;
         System.out.println("You get 1 point");
-    }else {
-        System.out.println("You do not guess any point");
+    } else if (userInput > 20) {
+        System.out.println("Please guess between 0 to 20");
+    } else {
+        System.out.println("You do not get any point");
     }
 }
 System.out.println("Your total point is : " + point);
